@@ -1,4 +1,4 @@
-# Rock Paper Scissors
+# Rock Paper Scissors | For the Terminal
 
 rock-paper-scissors was made using Python
 
