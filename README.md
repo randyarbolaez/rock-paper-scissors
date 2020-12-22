@@ -1,4 +1,4 @@
-# Foobar
+# Rock Paper Scissors
 
 rock-paper-scissors was made using Python
 
