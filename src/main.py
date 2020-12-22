@@ -5,11 +5,24 @@ choices = ['rock','paper','scissors']
 ai_score = 0
 user_score = 0
 
+def spelling_error_handling(correct_word_choices,prompt):
+    user_word_choice = input(prompt).lower()
+    if user_word_choice in correct_word_choices:
+        return user_word_choice
+    is_word_correct = False
+    while is_word_correct is False:
+        if user_word_choice in correct_word_choices:
+            is_word_correct = True
+        else:
+            print('Check spelling :)')
+            user_word_choice = input(prompt).lower()
+    return user_word_choice
+
 def ai_selection():
     return random.choice(choices)
 
 def user_selection():
-    user_choice = input('Which will you go with? Rock Paper or Scissors? ').lower()
+    user_choice = spelling_error_handling(['rock','paper','scissors'],'Which will you go with? Rock Paper or Scissors? ')
     return user_choice
 
 def who_won(ai,user):
@@ -49,8 +62,8 @@ def main():
             print('Congrats!! :)')
             user_score += 1
         print("User Score: ", user_score," | Ai Score: ", ai_score)
-        play = input('Want to play again?(Y/N)').lower()
-        if play == 'n':
+        play = spelling_error_handling(['no','n','yes','y'],'Want to play again?(Y/N) ')
+        if play == 'n' or play == 'no':
             play = False
             return
         else:
